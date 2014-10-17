@@ -1,0 +1,151 @@
+/*
+	TXT by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+.homepage-nav {
+	padding: 0;
+	display: none;
+}
+.homepage-brief{
+	display:;
+}
+.mobile-main-margin{
+}
+.desktop-horse-item{
+	margin-bottom:0;
+}
+.horse-list-item-div{
+	width:100%;height:130px;
+}
+.horse-list-item-pic{
+	height:100%;width:130px;float:left;clear:left;
+}
+.horse-list-item-text{
+	height:100%;max-width:870px;float:left;clear:right;text-align:left;padding-left:1%;
+}
+.QRCode{
+	width:300px;
+	height:300px;
+}
+.QRCodeDiv{
+	text-align:center;
+}
+.managebutton{
+	width:100%;
+	max-height:50%;
+	clear:both;
+	text-align:center;
+	float:right;
+}
+.managebuttondiv{
+	float:right;
+	width:10%;
+}
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+
+	body,input,textarea,select
+	{
+		font-size: 10.25pt;
+		line-height: 1.75em;
+	}
+
+	h2.major
+	{
+		margin: 0 0 2em 0;
+	}
+
+		h2.major span
+		{
+			top: -0.75em;
+			padding: 0 1em 0 1em;
+		}
+
+/*********************************************************************************/
+/* Wrappers                                                                      */
+/*********************************************************************************/
+
+	#banner-wrapper
+	{
+		padding:0;
+	}
+	
+	#main-wrapper
+	{
+		border-top-width: 20px;
+		border-bottom-width: 10px;
+	}
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+	#header
+	{
+		padding: 4em 0 1em 0;
+	}
+
+/*********************************************************************************/
+/* Banner                                                                        */
+/*********************************************************************************/
+
+	#banner
+	{
+		padding: 3.5em 0 3em 0;
+	}
+
+		#banner h2
+		{
+			margin: 0 0 0.65em 0;
+		}
+		
+		#banner p
+		{
+			margin: 0 0 1em 0;
+		}
+
+/*********************************************************************************/
+/* Main                                                                          */
+/*********************************************************************************/
+
+	#main
+	{
+		padding:0;
+	}
+
+		#main > .row
+		{
+			padding: 1em 0 1em 0;
+		}
+
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+
+	#footer
+	{
+		text-align: center;
+		padding:0;
+	}
+	
+		#footer > .row
+		{
+			padding: 2em 0 2em 0;
+		}
+
+	#footer-wrapper h2.major
+	{
+		margin: 0 0 1em 0;
+	}
+
+/*********************************************************************************/
+/* Copyright                                                                     */
+/*********************************************************************************/
+
+	#copyright
+	{
+		margin: 0;
+	}

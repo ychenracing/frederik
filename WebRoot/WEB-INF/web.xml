@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>UploadAHorse</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.UploadAHorse</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PublishNews</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.PublishNews</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SendEmail</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.SendEmail</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PublishFamily</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.PublishFamily</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyHomepage</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.ModifyHomepage</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyAHorse</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.ModifyAHorse</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyHorseGallery</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.ModifyHorseGallery</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyANews</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.ModifyANews</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyFamily</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.ModifyFamily</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyFamilyGallery</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.ModifyFamilyGallery</servlet-class>
+  </servlet>
+
+
+<servlet>
+    <servlet-name>CnUploadAHorse</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnUploadAHorse</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CnPublishNews</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnPublishNews</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CnSendEmail</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnSendEmail</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CnPublishFamily</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnPublishFamily</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CnModifyHomepage</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnModifyHomepage</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CnModifyAHorse</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnModifyAHorse</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CnModifyHorseGallery</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnModifyHorseGallery</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CnModifyANews</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnModifyANews</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CnModifyFamily</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnModifyFamily</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CnModifyFamilyGallery</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnModifyFamilyGallery</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+  <servlet-mapping>
+    <servlet-name>UploadAHorse</servlet-name>
+    <url-pattern>/UploadAHorse</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PublishNews</servlet-name>
+    <url-pattern>/PublishNews</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SendEmail</servlet-name>
+    <url-pattern>/SendEmail</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PublishFamily</servlet-name>
+    <url-pattern>/PublishFamily</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyHomepage</servlet-name>
+    <url-pattern>/ModifyHomepage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyAHorse</servlet-name>
+    <url-pattern>/ModifyAHorse</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyHorseGallery</servlet-name>
+    <url-pattern>/ModifyHorseGallery</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyANews</servlet-name>
+    <url-pattern>/ModifyANews</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyFamily</servlet-name>
+    <url-pattern>/ModifyFamily</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyFamilyGallery</servlet-name>
+    <url-pattern>/ModifyFamilyGallery</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet-mapping>
+    <servlet-name>CnUploadAHorse</servlet-name>
+    <url-pattern>/CnUploadAHorse</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CnPublishNews</servlet-name>
+    <url-pattern>/CnPublishNews</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CnSendEmail</servlet-name>
+    <url-pattern>/CnSendEmail</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CnPublishFamily</servlet-name>
+    <url-pattern>/CnPublishFamily</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CnModifyHomepage</servlet-name>
+    <url-pattern>/CnModifyHomepage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CnModifyAHorse</servlet-name>
+    <url-pattern>/CnModifyAHorse</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CnModifyHorseGallery</servlet-name>
+    <url-pattern>/CnModifyHorseGallery</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CnModifyANews</servlet-name>
+    <url-pattern>/CnModifyANews</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CnModifyFamily</servlet-name>
+    <url-pattern>/CnModifyFamily</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CnModifyFamilyGallery</servlet-name>
+    <url-pattern>/CnModifyFamilyGallery</url-pattern>
+  </servlet-mapping>
+ <session-config>
+  <session-timeout>259200</session-timeout>
+ </session-config>
+ <welcome-file-list>
+  <welcome-file>/en/index.jsp</welcome-file>
+ </welcome-file-list>
+</web-app>

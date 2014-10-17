@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+.managePageDivItem{
+	width:100%;
+	min-height:50px;
+	text-align:center;
+	clear:both;
+	line-height:50px;
+}
+.managePageDivItemHover{
+	width:100%;
+	min-height:50px;
+	text-align:center;
+	clear:both;
+	line-height:50px;
+	background:#e7eae8;
+}
+.managePageDivLinkItem{
+	display:block;
+	text-decoration:none;
+	color:#666666;
+	font-weight:bold;
+}
