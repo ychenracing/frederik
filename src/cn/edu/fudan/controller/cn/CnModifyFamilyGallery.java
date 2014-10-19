@@ -3,6 +3,7 @@ package cn.edu.fudan.controller.cn;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -82,7 +83,7 @@ public class CnModifyFamilyGallery extends HttpServlet {
 			request.setCharacterEncoding("utf-8");
 			PrintWriter out = response.getWriter();
 			String validPath = getServletContext().getRealPath("/");
-			String relativePath = "en/upload/",filePath = validPath + "en/upload/", fileName = null;
+			String relativePath = "cn/upload/",filePath = validPath + "cn/upload/", fileName = null;
 			LinkedHashMap<String,String> imageItemPathMap=new LinkedHashMap<String,String>();
 			LinkedHashMap<String,String> imageItemMap=new LinkedHashMap<String,String>();
 			StringBuilder imageStringBuilder = new StringBuilder();
@@ -174,11 +175,14 @@ public class CnModifyFamilyGallery extends HttpServlet {
 			family.setGallery(imageStringBuilder.toString());
 			if (modifyFamily.updateById(family)) {
 				response.sendRedirect("cn/Family.jsp");
-			} else
-				response.sendRedirect("cn/Tips.jsp?tips=update_failed!");
+			} else{
+				String tips=URLEncoder.encode("更新失败!","utf-8");
+				response.sendRedirect("cn/Tips.jsp?tips="+tips);
+			}
 		} catch (Exception e) {
 			//e.printStackTrace();
-			response.sendRedirect("cn/Tips.jsp?tips=error!");
+			String tips=URLEncoder.encode("出错了!","utf-8");
+			response.sendRedirect("cn/Tips.jsp?tips="+tips);
 		}
 	}
 

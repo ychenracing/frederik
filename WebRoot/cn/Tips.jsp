@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.*,cn.edu.fudan.model.*,cn.edu.fudan.function.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.*,cn.edu.fudan.model.*,cn.edu.fudan.function.*,java.net.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -12,12 +12,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 -->
 <html>
 	<head>
-		<title><%if(request.getParameter("tips")!=null)out.println(request.getParameter("tips"));else out.println(request.getParameter("error"));%></title>
+		<title><%if(request.getParameter("tips")!=null)out.println(new String(URLDecoder.decode(request.getParameter("tips"),"utf-8").getBytes("iso-8859-1"), "utf-8"));%></title>
 		<base href="<%=basePath%>">
 		<%@include file="template/Header.jsp" %>
 	</head>
 	<body>
-	
+	<%@include file="template/LanguageVersion.jsp"%>
 		<!-- Nav -->
 			<nav id="nav" class="skel-layers-fixed">
 				<ul>
@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<header id="header" style="padding:3em 0 0 0;">
 				<div class="logo container">
 					<div>
-						<h1><a href="" id="logo"><%if(request.getParameter("tips")!=null)out.println(request.getParameter("tips"));%></a>
+						<h1><a href="" id="logo"><%if(request.getParameter("tips")!=null)out.println(new String(URLDecoder.decode(request.getParameter("tips"),"utf-8").getBytes("iso-8859-1"), "utf-8"));%></a>
                         </h1>
 					</div>
 				</div>
@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<!-- Features -->
 								<section class="box features" >
 									<div>
-									<%if(request.getParameter("tips")!=null)out.println(request.getParameter("tips"));%>
+									<%if(request.getParameter("tips")!=null)out.println(new String(URLDecoder.decode(request.getParameter("tips"),"utf-8").getBytes("iso-8859-1"), "utf-8"));%>
 									</div>
 								</section>
 						</div>

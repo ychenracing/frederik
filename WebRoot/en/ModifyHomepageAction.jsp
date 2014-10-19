@@ -76,5 +76,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              transformer.transform(source, result);
              response.sendRedirect("index.jsp");
    %>
+   <%@include file="template/LoginCheck.jsp"%>
   </body>
 </html>

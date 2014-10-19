@@ -3,6 +3,7 @@ package cn.edu.fudan.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -175,11 +176,14 @@ public class ModifyHorseGallery extends HttpServlet {
 			horse.setGallery(imageStringBuilder.toString());
 			if (modifyHorse.updateById(horse)) {
 				response.sendRedirect("en/Horse.jsp?id="+horseId);
-			} else
-				response.sendRedirect("en/Tips.jsp?tips=update_failed!");
+			} else{
+				String tips=URLEncoder.encode("update failed!","utf-8");
+				response.sendRedirect("en/Tips.jsp?tips="+tips);
+			}
 		} catch (Exception e) {
-			//e.printStackTrace();
-			response.sendRedirect("en/Tips.jsp?tips=error!");
+			//e.printStackTrace();{
+			String tips=URLEncoder.encode("error!","utf-8");
+			response.sendRedirect("en/Tips.jsp?tips="+tips);
 		}
 	}
 

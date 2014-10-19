@@ -1,6 +1,9 @@
 package cn.edu.fudan.function;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class ConvertVideoTypeThread extends Thread {
 	private String videoPath;
@@ -12,9 +15,19 @@ public class ConvertVideoTypeThread extends Thread {
 	public void run(){
 		ConvertSingleVideo conver = new ConvertSingleVideo(videoPath);
 		conver.convert(conver.inputFile_home + fileName,conver.outputFile_home+ fileName.substring(0,fileName.lastIndexOf("."))+ ".mp4");
-		//File file=new File(videoPath);
-		//if(file.exists())file.delete();
-		//file=null;
+//		File file=new File("testVideoPath.txt");
+//		try {   
+//			    if(!file.exists())
+//				    file.createNewFile();
+//				FileWriter fw=new FileWriter(file);
+//				fw.write("ConvertVideoTypeThread:"+conver.inputFile_home + fileName+"\n");
+//				fw.flush();
+//				fw.close();
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		file=null;
 		conver=null;
 	}
 }

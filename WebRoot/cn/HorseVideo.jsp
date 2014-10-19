@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.cn.*,cn.edu.fudan.model.cn.*,cn.edu.fudan.function.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.cn.*,cn.edu.fudan.model.cn.*,cn.edu.fudan.function.*,java.net.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -23,7 +23,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	{
 	    horse=modifyHorse.getById(id);
 	    if(horse==null||horse.getVideo()==null){
-	        response.sendRedirect("Tips.jsp?tips=no_video_available!");
+	        String tips=URLEncoder.encode("没有视频!","utf-8");
+	        response.sendRedirect("Tips.jsp?tips="+tips);
+	        return;
 	    }
 	    lhm=DataTypeConverter.class.newInstance().convertJsonToMap(horse.getProperty());
 	}
@@ -33,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%@include file="template/Header.jsp" %>
 	</head>
 	<body>
-	
+	<%@include file="template/LanguageVersion.jsp"%>
 		<!-- Header -->
 			<header id="header" style="padding:3em 0 0 0;">
 				<div class="logo container">

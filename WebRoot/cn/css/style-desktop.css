@@ -72,6 +72,21 @@
 .sendemailTitleNone{
 	display:;
 }
+.languageVersion{
+	display:none;
+	position:absolute;
+	z-index:9999999;
+	float:right;
+	top:0;
+	right:0;
+	width:8%;
+	text-align:center;
+	color:#ffffff;
+	background-color:#2d6f61;
+	font-size:1.5em;
+	font-weight:bold;
+	line-height:44px;
+}
 /*********************************************************************************/
 /* Basic                                                                         */
 /*********************************************************************************/

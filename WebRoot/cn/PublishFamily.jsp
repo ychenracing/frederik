@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%@include file="template/Header.jsp" %>
 	</head>
 	<body>
-
+<%@include file="template/LanguageVersion.jsp"%>
 		<!-- Nav -->
 			<nav id="nav" class="skel-layers-fixed">
 				<ul>
@@ -72,5 +72,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 });
     </script>
 		<%@include file="template/Footer.jsp"%>
+		<%@include file="template/LoginCheck.jsp"%>
 	</body>
 </html>

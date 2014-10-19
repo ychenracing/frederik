@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.*,cn.edu.fudan.model.*,cn.edu.fudan.function.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.*,cn.edu.fudan.model.*,cn.edu.fudan.function.*,java.net.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -24,7 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	else
 	{
 	    family=lsf.get(0);
-	    if(family.getVideo()==null)response.sendRedirect("Tips.jsp?tips=no_video_available!");
+	    String tips=URLEncoder.encode("no video available!", "utf-8");
+	    if(family.getVideo()==null)response.sendRedirect("Tips.jsp?tips="+tips);
 	}
 	%>
 		<title>About us</title>
@@ -32,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%@include file="template/Header.jsp" %>
 	</head>
 	<body>
-	
+	<%@include file="template/LanguageVersion.jsp"%>
 		<!-- Header -->
 			<header id="header" style="padding:3em 0 0 0;">
 				<div class="logo container">

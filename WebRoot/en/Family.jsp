@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.*,cn.edu.fudan.model.*,cn.edu.fudan.function.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.*,cn.edu.fudan.model.*,cn.edu.fudan.function.*,java.net.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -20,7 +20,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	cn.edu.fudan.model.ModifyFamily modifyFamily=new cn.edu.fudan.model.ModifyFamily();Family family=null;
 	lsf=modifyFamily.getAll();
 	if(lsf==null)
-	{response.sendRedirect("Tips.jsp?tips=no_family_information_available!");
+	{
+	String tips=URLEncoder.encode("no family_information available!","utf-8");
+	response.sendRedirect("Tips.jsp?tips="+tips);
 	return;
 	}
 	family=lsf.get(0);
@@ -28,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%@include file="template/Header.jsp" %>
 	</head>
 	<body>
-	
+	<%@include file="template/LanguageVersion.jsp"%>
 	
 	
 	

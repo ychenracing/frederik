@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.cn.*,cn.edu.fudan.model.cn.*,cn.edu.fudan.function.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.cn.*,cn.edu.fudan.model.cn.*,cn.edu.fudan.function.*,java.net.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -13,10 +13,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 	<%int newsId=0;
-	CnModifyNews modifyNews=new CnModifyNews();
-	List<CnNews> lsnews=null;
-	CnNews news=null;
-	CnNews currentNews=null;
+	  CnModifyNews modifyNews=new CnModifyNews();
+	  List<CnNews> lsnews=null;
+	  CnNews news=null;
+	  CnNews currentNews=null;
 	  if(request.getParameter("id")==null){
 	     newsId=0;
 	  }
@@ -27,7 +27,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      currentNews=modifyNews.getById(newsId);
 	  }
 	  if(currentNews==null){
-	  response.sendRedirect("Tips.jsp?tips=no_news_choosed");
+	  String tips=URLEncoder.encode("没有新闻!","utf-8");
+	  response.sendRedirect("Tips.jsp?tips="+tips);
 	  return;
 	  }
 	  %>
@@ -36,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%@include file="template/Header.jsp" %>
 	</head>
 	<body>
-
+<%@include file="template/LanguageVersion.jsp"%>
 		<!-- Header -->
 			<header id="header" style="padding:3em 0 0 0;">
 				<div class="logo container">

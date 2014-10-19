@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.*,cn.edu.fudan.model.*,cn.edu.fudan.function.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.*,cn.edu.fudan.model.*,cn.edu.fudan.function.*,java.net.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -22,6 +22,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	else
 	{
 	    horse=modifyHorse.getById(id);
+	    if(horse==null)
+	    {    
+	        String tips=URLEncoder.encode("no horse information available!","utf-8");
+	        response.sendRedirect("Tips.jsp?tips="+tips);
+	        return;
+	    }
 	    lhm=DataTypeConverter.class.newInstance().convertJsonToMap(horse.getProperty());
 	}
 	%>
@@ -30,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%@include file="template/Header.jsp" %>
 	</head>
 	<body>
-	
+	<%@include file="template/LanguageVersion.jsp"%>
 	
 	
 	

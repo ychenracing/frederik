@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.cn.*,cn.edu.fudan.model.cn.*,cn.edu.fudan.function.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,cn.edu.fudan.entity.cn.*,cn.edu.fudan.model.cn.*,cn.edu.fudan.function.*,java.net.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -17,6 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%@include file="template/Header.jsp" %>
 	</head>
 	<body>
+	<%@include file="template/LanguageVersion.jsp"%>
 		<!-- Nav -->
 			<nav id="nav" class="skel-layers-fixed">
 				<ul>
@@ -39,7 +40,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(lsf!=null)out.print(lsf.get(0).getIntro());
 			else 
 			{
-			    response.sendRedirect("Tips.jsp?tips=no_Family_information_available");
+			    String tips=URLEncoder.encode("没有\"关于我们\"的信息!","utf-8");
+			    response.sendRedirect("Tips.jsp?tips="+tips);
 			    return;
 			}
 			 %>
@@ -91,5 +93,6 @@ ue.ready(function() {
 });
     </script>
 		<%@include file="template/Footer.jsp"%>
+		<%@include file="template/LoginCheck.jsp"%>
 	</body>
 </html>

@@ -3,6 +3,7 @@ package cn.edu.fudan.controller.cn;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -81,8 +82,8 @@ public class CnModifyANews extends HttpServlet {
 			response.setCharacterEncoding("utf-8");
 			request.setCharacterEncoding("utf-8");
 			String validPath = getServletContext().getRealPath("/");
-			String filePath = validPath + "en/upload/image/", fileName = null, title = null,content=null,brief=null;
-			String relativePath = "en/upload/image/";
+			String filePath = validPath + "cn/upload/image/", fileName = null, title = null,content=null,brief=null;
+			String relativePath = "cn/upload/image/";
 			int newsId = 0;
 			Random random = new Random();
 			File f = new File(filePath);
@@ -135,11 +136,14 @@ public class CnModifyANews extends HttpServlet {
 			if(modifyNews.updateById(news)){
 				response.sendRedirect("cn/News&Events.jsp?id="+newsId);
 			}
-			else 
-				response.sendRedirect("cn/Tips.jsp?tips=update_failed!");
+			else{
+				String tips=URLEncoder.encode("更新失败!","utf-8");
+				response.sendRedirect("cn/Tips.jsp?tips="+tips);
+			}
 		} catch (Exception e) {
 			//e.printStackTrace();
-			response.sendRedirect("cn/Tips.jsp?tips=error!");
+			String tips=URLEncoder.encode("出错了!","utf-8");
+			response.sendRedirect("cn/Tips.jsp?tips="+tips);
 		}
 	}
 

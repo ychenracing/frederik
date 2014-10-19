@@ -3,6 +3,7 @@ package cn.edu.fudan.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,6 +20,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import cn.edu.fudan.entity.Horse;
+import cn.edu.fudan.function.ConvertVideoTypeThread;
 import cn.edu.fudan.function.DataTypeConverter;
 import cn.edu.fudan.model.ModifyHorse;
 
@@ -116,34 +118,38 @@ public class ModifyAHorse extends HttpServlet {
 				FileItem item = it.next();
 				if (!item.isFormField()) { // 不是一个普通的表单对象
 					if (item.getFieldName().equals("image")) {
-						fileName = item.getName().substring(item.getName().lastIndexOf("."),item.getName().length());
-						fileName = String.valueOf(System.currentTimeMillis()+ random.nextInt(10000))+ fileName;
-						imageStringBuilder.append(relativePath + "image/"+ fileName + ";");
-						File uploadedFile = new File(filePath + "image/",fileName);
-						item.write(uploadedFile);
-						uploadedFile = null;
+						if(item.getName()!=null&&!"".equals(item.getName())){
+						    fileName = item.getName().substring(item.getName().lastIndexOf("."),item.getName().length());
+						    fileName = String.valueOf(System.currentTimeMillis()+ random.nextInt(10000))+ fileName;
+						    imageStringBuilder.append(relativePath + "image/"+ fileName + ";");
+						    File uploadedFile = new File(filePath + "image/",fileName);
+						    item.write(uploadedFile);
+						    uploadedFile = null;
+						}
 					}
 					else if (item.getFieldName().equals("cover")) {
-						fileName = item.getName().substring(item.getName().lastIndexOf("."),item.getName().length());
-						fileName = String.valueOf(System.currentTimeMillis()+ random.nextInt(10000))+ fileName;
-						cover=relativePath + "image/"+ fileName;
-						File uploadedFile = new File(filePath + "image/",fileName);
-						item.write(uploadedFile);
-						uploadedFile = null;
+						if(item.getName()!=null&&!"".equals(item.getName())){
+						    fileName = item.getName().substring(item.getName().lastIndexOf("."),item.getName().length());
+						    fileName = String.valueOf(System.currentTimeMillis()+ random.nextInt(10000))+ fileName;
+						    cover=relativePath + "image/"+ fileName;
+						    File uploadedFile = new File(filePath + "image/",fileName);
+						    item.write(uploadedFile);
+						    uploadedFile = null;
+						}
 					}
 					else if (item.getFieldName().equals("video")) {
 						if(item.getName()!=null&&!"".equals(item.getName())){
-						fileName = item.getName().substring(item.getName().lastIndexOf("."),item.getName().length());
-						fileName = String.valueOf(System.currentTimeMillis()+ random.nextInt(10000))+ fileName;
-						videoPath = filePath + "video/" + fileName;
-						videoRelativePath = relativePath + "video/" + fileName;
-						File uploadedFile = new File(filePath + "video/",fileName);
-						item.write(uploadedFile);
-						//ConvertVideoTypeThread cvtt=new ConvertVideoTypeThread(videoPath,fileName);
-						//videoPath=videoPath.substring(0,videoPath.lastIndexOf("."))+".mp4";
-						//videoRelativePath=videoRelativePath.substring(0,videoRelativePath.lastIndexOf("."))+".mp4";
-						//cvtt.start();
-						uploadedFile = null;
+						    fileName = item.getName().substring(item.getName().lastIndexOf("."),item.getName().length());
+						    fileName = String.valueOf(System.currentTimeMillis()+ random.nextInt(10000))+ fileName;
+						    videoPath = filePath + "video/" + fileName;
+						    videoRelativePath = relativePath + "video/" + fileName;
+						    File uploadedFile = new File(filePath + "video/",fileName);
+						    item.write(uploadedFile);
+//						    ConvertVideoTypeThread cvtt=new ConvertVideoTypeThread(videoPath,fileName);
+//						    videoPath=videoPath.substring(0,videoPath.lastIndexOf("."))+".mp4";
+//						    videoRelativePath=videoRelativePath.substring(0,videoRelativePath.lastIndexOf("."))+".mp4";
+//						    cvtt.start();
+						    uploadedFile = null;
 						}
 					}
 				} else { // 取得普通的对象[对于像文本框这种类型的使用]
@@ -193,12 +199,17 @@ public class ModifyAHorse extends HttpServlet {
 			horse.setSportoryoung(sportoryoung);
 			//horse.setAddtime(dateTimeNow);
 			if (modifyHorse.updateById(horse)) {
-				response.sendRedirect("en/Tips.jsp?tips=update_success!");
+				String tips=URLEncoder.encode("update success!","utf-8");
+				response.sendRedirect("en/Tips.jsp?tips="+tips);
 			}
-			else response.sendRedirect("en/Tips.jsp?tips=update_failed!");
+			else {
+				String tips=URLEncoder.encode("update failed!","utf-8");
+				response.sendRedirect("en/Tips.jsp?tips="+tips);
+			}
 		} catch (Exception e) {
-			//e.printStackTrace();
-			response.sendRedirect("en/Tips.jsp?tips=error!");
+			e.printStackTrace();
+			//String tips=URLEncoder.encode("error!","utf-8");
+			//response.sendRedirect("en/Tips.jsp?tips="+tips);
 		}
 	}
 

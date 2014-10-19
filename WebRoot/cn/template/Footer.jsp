@@ -19,7 +19,14 @@
 				<!-- Copyright -->
 					<div id="copyright">
 						<ul class="menu">
-							<li>&copy; ZUCHTHOF STERTHOFF. 版权所有.</li>
+							<li>&copy; ZUCHTHOF STERTHOFF. 版权所有.
+							<%if(session.getAttribute("frederik")==null){%>
+							<a href="cn/Login.jsp" style="text-decoration:none">登录</a>
+							<%}else{ %>
+							<a href="cn/Logout.jsp" style="text-decoration:none">退出</a>
+							<%} %>
+							
+							</li>
 							<!-- <li>Design: <a href="http://www.iipl.fudan.edu.cn/~chen">陈勇</a></li> -->
 						</ul>
 					</div>

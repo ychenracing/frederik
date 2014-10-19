@@ -3,6 +3,7 @@ package cn.edu.fudan.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -18,6 +19,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import cn.edu.fudan.entity.Family;
 import cn.edu.fudan.entity.Horse;
+import cn.edu.fudan.function.ConvertVideoTypeThread;
 import cn.edu.fudan.model.ModifyHorse;
 
 public class ModifyFamily extends HttpServlet {
@@ -117,6 +119,10 @@ public class ModifyFamily extends HttpServlet {
 						videoRelativePath = relativePath + "video/" + fileName;
 						File uploadedFile = new File(filePath + "video/",fileName);
 						item.write(uploadedFile);
+//						ConvertVideoTypeThread cvtt=new ConvertVideoTypeThread(videoPath,fileName);
+//						videoPath=videoPath.substring(0,videoPath.lastIndexOf("."))+".mp4";
+//						videoRelativePath=videoRelativePath.substring(0,videoRelativePath.lastIndexOf("."))+".mp4";
+//						cvtt.start();
 						uploadedFile = null;
 						}
 					}
@@ -141,11 +147,14 @@ public class ModifyFamily extends HttpServlet {
 			if(videoPath!=null)family.setVideo(videoRelativePath);
 			if (modifyFamily.updateById(family)) {
 				response.sendRedirect(url);
-			}else
-				response.sendRedirect("en/Tips.jsp?tips=update_failed!");
+			}else{
+				String tips=URLEncoder.encode("update failed!","utf-8");
+				response.sendRedirect("en/Tips.jsp?tips="+tips);
+			}
 		} catch (Exception e) {
 			//e.printStackTrace();
-			response.sendRedirect("en/Tips.jsp?tips=error!");
+			String tips=URLEncoder.encode("error!","utf-8");
+			response.sendRedirect("en/Tips.jsp?tips="+tips);
 		}
 	}
 

@@ -3,6 +3,7 @@ package cn.edu.fudan.controller.cn;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,6 +21,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import cn.edu.fudan.entity.cn.CnHorse;
 import cn.edu.fudan.function.DataTypeConverter;
+import cn.edu.fudan.function.cn.CnConvertVideoTypeThread;
 import cn.edu.fudan.model.cn.CnModifyHorse;
 
 public class CnUploadAHorse extends HttpServlet {
@@ -93,7 +95,7 @@ public class CnUploadAHorse extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			String validPath = getServletContext().getRealPath("/");
 			int sportoryoung=0;
-			String relativePath = "en/upload/",filePath = validPath + "en/upload/", fileName = null,cover=null, title = null, brief = null, intro = null, videoPath = null, videoRelativePath = null;
+			String relativePath = "cn/upload/",filePath = validPath + "cn/upload/", fileName = null,cover=null, title = null, brief = null, intro = null, videoPath = null, videoRelativePath = null;
 			StringBuilder imageStringBuilder = new StringBuilder();
 			Map<String,String> propertyMap=new LinkedHashMap<String,String>();
 			Map<String,String> propertyKeyMap=new LinkedHashMap<String,String>();
@@ -145,10 +147,10 @@ public class CnUploadAHorse extends HttpServlet {
 						videoRelativePath = relativePath + "video/" + fileName;
 						File uploadedFile = new File(filePath + "video/",fileName);
 						item.write(uploadedFile);
-						//ConvertVideoTypeThread cvtt=new ConvertVideoTypeThread(videoPath,fileName);
-						//videoPath=videoPath.substring(0,videoPath.lastIndexOf("."))+".mp4";
-						//videoRelativePath=videoRelativePath.substring(0,videoRelativePath.lastIndexOf("."))+".mp4";
-						//cvtt.start();
+//						CnConvertVideoTypeThread cvtt=new CnConvertVideoTypeThread(videoPath,fileName);
+//						videoPath=videoPath.substring(0,videoPath.lastIndexOf("."))+".mp4";
+//						videoRelativePath=videoRelativePath.substring(0,videoRelativePath.lastIndexOf("."))+".mp4";
+//						cvtt.start();
 						uploadedFile = null;
 						}
 					}
@@ -197,13 +199,17 @@ public class CnUploadAHorse extends HttpServlet {
 			horse.setSportoryoung(sportoryoung);
 			horse.setAddtime(dateTimeNow);
 			if (modifyHorse.insertNewHorse(horse)) {
-				response.sendRedirect("cn/Tips.jsp?tips=success!");
-			} else
-				response.sendRedirect("cn/Tips.jsp?tips=publish_failed!");
+				String tips=URLEncoder.encode("成功!","utf-8");
+				response.sendRedirect("cn/Tips.jsp?tips="+tips);
+			} else{
+				String tips=URLEncoder.encode("发布失败!","utf-8");
+				response.sendRedirect("cn/Tips.jsp?tips="+tips);
+			}
 		} catch (Exception e) {
 			//e.printStackTrace();
 			try {
-				response.sendRedirect("cn/Tips.jsp?tips=error!");
+				String tips=URLEncoder.encode("出错了!","utf-8");
+				response.sendRedirect("cn/Tips.jsp?tips="+tips);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}

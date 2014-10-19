@@ -16,6 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <%@include file="template/LanguageVersion.jsp"%>
   <% 
             Document document =null; 
             DocumentBuilderFactory   factory = DocumentBuilderFactory.newInstance();      
@@ -76,5 +77,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              transformer.transform(source, result);
              response.sendRedirect("index.jsp");
    %>
+   <%@include file="template/LoginCheck.jsp"%>
   </body>
 </html>

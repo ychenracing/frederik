@@ -3,6 +3,7 @@ package cn.edu.fudan.controller.cn;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -16,8 +17,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import cn.edu.fudan.entity.Family;
 import cn.edu.fudan.entity.cn.CnFamily;
+import cn.edu.fudan.function.cn.CnConvertVideoTypeThread;
 
 public class CnModifyFamily extends HttpServlet {
 
@@ -82,7 +83,7 @@ public class CnModifyFamily extends HttpServlet {
 			request.setCharacterEncoding("utf-8");
 			PrintWriter out = response.getWriter();
 			String validPath = getServletContext().getRealPath("/");
-			String relativePath = "en/upload/",filePath = validPath + "en/upload/", fileName = null, title = null,intro = null, videoPath = null, videoRelativePath = null;
+			String relativePath = "cn/upload/",filePath = validPath + "cn/upload/", fileName = null, title = null,intro = null, videoPath = null, videoRelativePath = null;
 			int iteratorI=1;
 			Random random = new Random();
 			File f = new File(filePath + "image/");
@@ -116,6 +117,10 @@ public class CnModifyFamily extends HttpServlet {
 						videoRelativePath = relativePath + "video/" + fileName;
 						File uploadedFile = new File(filePath + "video/",fileName);
 						item.write(uploadedFile);
+//						CnConvertVideoTypeThread cvtt=new CnConvertVideoTypeThread(videoPath,fileName);
+//						videoPath=videoPath.substring(0,videoPath.lastIndexOf("."))+".mp4";
+//						videoRelativePath=videoRelativePath.substring(0,videoRelativePath.lastIndexOf("."))+".mp4";
+//						cvtt.start();
 						uploadedFile = null;
 						}
 					}
@@ -140,11 +145,14 @@ public class CnModifyFamily extends HttpServlet {
 			if(videoPath!=null)family.setVideo(videoRelativePath);
 			if (modifyFamily.updateById(family)) {
 				response.sendRedirect(url);
-			}else
-				response.sendRedirect("cn/Tips.jsp?tips=update_failed!");
+			}else{
+				String tips=URLEncoder.encode("更新失败!","utf-8");
+				response.sendRedirect("cn/Tips.jsp?tips="+tips);
+			}
 		} catch (Exception e) {
 			//e.printStackTrace();
-			response.sendRedirect("cn/Tips.jsp?tips=error!");
+			String tips=URLEncoder.encode("出错了!","utf-8");
+			response.sendRedirect("cn/Tips.jsp?tips="+tips);
 		}
 	}
 

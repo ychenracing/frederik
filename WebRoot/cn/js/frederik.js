@@ -108,3 +108,16 @@ function modifyHomepageCheck(){
 	}
 	return true;
 }
+function loginCheck(){
+	var username=document.getElementById("username").value;
+	var password=document.getElementById("password").value;
+	if(username==""){
+		document.getElementById("usernamemsg").innerText="*";
+		return false;
+	}
+	if(password==""){
+		document.getElementById("passwordmsg").innerText="*";
+		return false;
+	}
+	return true;
+}

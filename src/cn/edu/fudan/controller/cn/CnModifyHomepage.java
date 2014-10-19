@@ -86,7 +86,7 @@ public class CnModifyHomepage extends HttpServlet {
 			request.setCharacterEncoding("utf-8");
 			PrintWriter out = response.getWriter();
 			String validPath = getServletContext().getRealPath("/");
-			String relativePath = "en/upload/",filePath = validPath + "en/upload/", fileName = null, title = null;
+			String relativePath = "cn/upload/",filePath = validPath + "cn/upload/", fileName = null, title = null;
 			StringBuilder imageStringBuilder = new StringBuilder();
 			int iteratorI=1;
 			Random random = new Random();

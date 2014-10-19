@@ -3,6 +3,7 @@ package cn.edu.fudan.controller.cn;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,8 +20,8 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import cn.edu.fudan.entity.cn.CnHorse;
+import cn.edu.fudan.function.cn.CnConvertVideoTypeThread;
 import cn.edu.fudan.function.DataTypeConverter;
-import cn.edu.fudan.model.ModifyHorse;
 import cn.edu.fudan.model.cn.CnModifyHorse;
 
 public class CnModifyAHorse extends HttpServlet {
@@ -88,7 +89,7 @@ public class CnModifyAHorse extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			String validPath = getServletContext().getRealPath("/");
 			int sportoryoung=0,horseId=0;
-			String relativePath = "en/upload/",filePath = validPath + "en/upload/", fileName = null, cover=null, title = null, brief = null, intro = null, videoPath = null, videoRelativePath = null;
+			String relativePath = "cn/upload/",filePath = validPath + "cn/upload/", fileName = null, cover=null, title = null, brief = null, intro = null, videoPath = null, videoRelativePath = null;
 			StringBuilder imageStringBuilder = new StringBuilder();
 			Map<String,String> propertyMap=new LinkedHashMap<String,String>();
 			Map<String,String> propertyKeyMap=new LinkedHashMap<String,String>();
@@ -117,20 +118,24 @@ public class CnModifyAHorse extends HttpServlet {
 				FileItem item = it.next();
 				if (!item.isFormField()) { // 不是一个普通的表单对象
 					if (item.getFieldName().equals("image")) {
+						if(item.getName()!=null&&!"".equals(item.getName())){
 						fileName = item.getName().substring(item.getName().lastIndexOf("."),item.getName().length());
 						fileName = String.valueOf(System.currentTimeMillis()+ random.nextInt(10000))+ fileName;
 						imageStringBuilder.append(relativePath + "image/"+ fileName + ";");
 						File uploadedFile = new File(filePath + "image/",fileName);
 						item.write(uploadedFile);
 						uploadedFile = null;
+						}
 					}
 					else if (item.getFieldName().equals("cover")) {
+						if(item.getName()!=null&&!"".equals(item.getName())){
 						fileName = item.getName().substring(item.getName().lastIndexOf("."),item.getName().length());
 						fileName = String.valueOf(System.currentTimeMillis()+ random.nextInt(10000))+ fileName;
 						cover=relativePath + "image/"+ fileName;
 						File uploadedFile = new File(filePath + "image/",fileName);
 						item.write(uploadedFile);
 						uploadedFile = null;
+						}
 					}
 					else if (item.getFieldName().equals("video")) {
 						if(item.getName()!=null&&!"".equals(item.getName())){
@@ -140,10 +145,10 @@ public class CnModifyAHorse extends HttpServlet {
 						videoRelativePath = relativePath + "video/" + fileName;
 						File uploadedFile = new File(filePath + "video/",fileName);
 						item.write(uploadedFile);
-						//ConvertVideoTypeThread cvtt=new ConvertVideoTypeThread(videoPath,fileName);
-						//videoPath=videoPath.substring(0,videoPath.lastIndexOf("."))+".mp4";
-						//videoRelativePath=videoRelativePath.substring(0,videoRelativePath.lastIndexOf("."))+".mp4";
-						//cvtt.start();
+//						CnConvertVideoTypeThread cvtt=new CnConvertVideoTypeThread(videoPath,fileName);
+//						videoPath=videoPath.substring(0,videoPath.lastIndexOf("."))+".mp4";
+//						videoRelativePath=videoRelativePath.substring(0,videoRelativePath.lastIndexOf("."))+".mp4";
+//						cvtt.start();
 						uploadedFile = null;
 						}
 					}
@@ -194,12 +199,17 @@ public class CnModifyAHorse extends HttpServlet {
 			horse.setSportoryoung(sportoryoung);
 			//horse.setAddtime(dateTimeNow);
 			if (modifyHorse.updateById(horse)) {
-				response.sendRedirect("cn/Tips.jsp?tips=update_success!");
+				String tips=URLEncoder.encode("update success!","utf-8");
+				response.sendRedirect("cn/Tips.jsp?tips="+tips);
 			}
-			else response.sendRedirect("cn/Tips.jsp?tips=update_failed!");
+			else {
+				String tips=URLEncoder.encode("更新失败!","utf-8");
+				response.sendRedirect("cn/Tips.jsp?tips="+tips);
+			}
 		} catch (Exception e) {
 			//e.printStackTrace();
-			response.sendRedirect("cn/Tips.jsp?tips=error!");
+			String tips=URLEncoder.encode("出错了!","utf-8");
+			response.sendRedirect("cn/Tips.jsp?tips="+tips);
 		}
 	}
 

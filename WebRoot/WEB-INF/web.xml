@@ -83,6 +83,16 @@
     <servlet-name>CnModifyFamilyGallery</servlet-name>
     <servlet-class>cn.edu.fudan.controller.cn.CnModifyFamilyGallery</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.Login</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CnLogin</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnLogin</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -183,6 +193,14 @@
   <servlet-mapping>
     <servlet-name>CnModifyFamilyGallery</servlet-name>
     <url-pattern>/CnModifyFamilyGallery</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CnLogin</servlet-name>
+    <url-pattern>/CnLogin</url-pattern>
   </servlet-mapping>
  <session-config>
   <session-timeout>259200</session-timeout>

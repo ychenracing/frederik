@@ -3,6 +3,7 @@ package cn.edu.fudan.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -137,12 +138,14 @@ public class PublishNews extends HttpServlet {
 				response.sendRedirect("en/ListOfNews.jsp");
 			}
 			else {
-				response.sendRedirect("en/Tips.jsp?tips=publish_failed!");
+				String tips=URLEncoder.encode("publish failed!","utf-8");
+				response.sendRedirect("en/Tips.jsp?tips="+tips);
 			}
 		} catch (Exception e) {
 			//e.printStackTrace();
 			try {
-				response.sendRedirect("en/Tips.jsp?tips=error!");
+				String tips=URLEncoder.encode("error!","utf-8");
+				response.sendRedirect("en/Tips.jsp?tips="+tips);
 			} catch (IOException e1) {
 				//e1.printStackTrace();
 			}
