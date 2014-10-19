@@ -21,6 +21,7 @@
 			<link rel="stylesheet" href="cn/css/style-desktop.css" />
             <link rel="stylesheet" href="cn/css/font-awesome.min.css" /> 
 		</noscript>
+		<link rel="icon" href="cn/images/frederik.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="cn/css/frederik.css" />
 		<link rel="stylesheet" href="cn/css/Buttons/css/font-awesome-ie7.min.css" />
 		<link rel="stylesheet" href="cn/css/Buttons/css/font-awesome.min.css" />

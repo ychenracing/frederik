@@ -29,8 +29,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</nav>
 			
+			<!-- Header -->
+			<header id="header" style="padding:3em 0 0 0;">
+				<div class="logo container">
+					<div>
+						<h1><a href="" id="logo">Send me an email</a>
+                        </h1>
+					</div>
+				</div>
+			</header>
+			
 		<!-- Main -->
-			<div id="main-wrapper" style="margin-top:4%;">
+			<div id="main-wrapper" style="">
 				<div id="main" class="container">
 					<div class="row">
 						<div class="12u">

@@ -78,12 +78,12 @@
 }
 .languageVersion{
 	display:;
-	position:fixed;
-	z-index:2147483647;
+	position:relative;
+	z-index:9999999999;
 	float:right;
 	top:0;
 	right:0;
-	width:8%;
+	width:10%;
 	text-align:center;
 	color:#ffffff;
 	background-color:#2d6f61;
