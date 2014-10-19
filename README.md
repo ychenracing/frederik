@@ -1,1 +1,1 @@
-website about horses of frederik(by Yong Chen)
+responsive website about horses of frederik(by Yong Chen)
