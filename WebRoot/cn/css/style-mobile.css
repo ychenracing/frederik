@@ -78,7 +78,7 @@
 }
 .languageVersion{
 	display:;
-	position:relative;
+	position:fixed;
 	z-index:9999999999;
 	float:right;
 	top:0;
@@ -90,6 +90,11 @@
 	font-size:1.5em;
 	font-weight:bold;
 	line-height:44px;
+}
+.listHorseImage{
+	width:100%;
+	height:auto;
+	max-height:100%;
 }
 /*********************************************************************************/
 /* Basic                                                                         */

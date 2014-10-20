@@ -2,6 +2,7 @@ package cn.edu.fudan.controller.cn;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -79,6 +80,8 @@ public class CnSendEmail extends HttpServlet {
 		content=request.getParameter("content");
 		mail newmail=new mail("smtp.163.com");
 		newmail.send(title,name, email, content, receiver);
+		String tips=URLEncoder.encode("谢谢你的建议和意见","utf-8");
+		response.sendRedirect("cn/Tips?tips="+tips);
 	}
 
 	/**

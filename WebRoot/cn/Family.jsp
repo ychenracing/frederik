@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<header id="header" style="padding:3em 0 0 0;">
 				<div class="logo container">
 					<div>
-						<h1><a href="" id="logo"><%=family.getTitle()%></a></h1>
+						<h1 id="logo"><%=family.getTitle()%></h1>
 					</div>
 				</div>
 			</header>

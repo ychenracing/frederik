@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<header id="header" style="padding:3em 0 0 0;">
 				<div class="logo container">
 					<div>
-						<h1><a href="" id="logo">新闻列表</a>
+						<h1 id="logo">新闻列表
                         </h1>
 					</div>
 				</div>
@@ -70,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 														<div class="horse-list-item-div">
 														<div class="horse-list-item-pic">
 														<a href="cn/News&Events.jsp?id=<%=newsItem.getId()%>">
-														<img style="width:100%;height:auto;max-height:100%;" src="<%=newsItem.getCover()%>" alt="" />
+														<img class="listHorseImage" src="<%=newsItem.getCover()%>" alt="" />
 														</a>
 														</div>
 														<div class="horse-list-item-text">

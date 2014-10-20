@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<header id="header" style="padding:3em 0 0 0;">
 				<div class="logo container">
 					<div>
-						<h1><a href="" id="logo">My QRCode</a></h1>
+						<h1 id="logo">My QRCode</h1>
 					</div>
 				</div>
 			</header>

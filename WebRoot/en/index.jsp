@@ -17,8 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%@include file="template/Header.jsp" %>
 	</head>
 	<body class="homepage">
-<div class="languageVersion">
-<a href="cn/index.jsp" style="text-decoration:none;color:#ffffff;">cn</a>
+<div id="languageVersion" class="languageVersion">
+<a href="cn/index.jsp" style="text-decoration:none;color:#ffffff;"><img src="en/images/flag_mini.jpg"/></a>
 </div>
 		
 

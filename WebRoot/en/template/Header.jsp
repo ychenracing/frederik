@@ -3,7 +3,6 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		
 		<script src="en/js/jquery.min.js"></script>
 		<script src="en/js/jquery.dropotron.min.js"></script>
 		<script src="en/js/skel.min.js"></script>

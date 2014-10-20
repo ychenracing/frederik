@@ -19,7 +19,7 @@
 				<!-- Copyright -->
 					<div id="copyright">
 						<ul class="menu">
-							<li>&copy; ZUCHTHOF STERTHOFF. 版权所有.
+							<li>&copy;ZUCHTHOF STERTHOFF.版权所有.
 							<%if(session.getAttribute("frederik")==null){%>
 							<a href="cn/Login.jsp" style="text-decoration:none">登录</a>
 							<%}else{ %>
@@ -32,3 +32,13 @@
 					</div>
 
 			</footer>
+			
+<!-- SlidesJS Required: Link to jQuery -->
+  <script src="cn/js/jquery-2.1.1.min.js"></script>
+  <!-- End SlidesJS Required -->
+			<script type="text/javascript">
+var languageVersionNode=$("#languageVersion");
+$(function(){
+	$("#skel-layers-activeWrapper").append(languageVersionNode); 
+});
+</script>

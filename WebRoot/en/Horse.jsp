@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<header id="header" style="padding:3em 0 0 0;">
 				<div class="logo container">
 					<div>
-						<h1><a href="" id="logo"><%=horse.getTitle()%></a></h1>
+						<h1 id="logo"><%=horse.getTitle()%></h1>
 					</div>
 				</div>
 			</header>
@@ -124,14 +124,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<article class="box page-content">
 
 										<header>
-											<h4 style="font-size:2em!important;"><%=horse.getTitle()%></h4>
+											<h4 style="font-size:1.2em!important;"><%=horse.getTitle()%></h4>
 											<ul class="meta">
 												<li class="icon fa-clock-o"><%=horse.getAddtime()%></li>
 											</ul>
 										</header>
 
 										<section>
-											<div style="width:100%;margin:auto;font-size:1.2em!important;">
+											<div style="width:100%;margin:auto;font-size:1.1em!important;">
 											<%for(Map.Entry<String,String> propertyItem:lhm.entrySet()){ %>
 											<div style="width:100%;margin:auto;border:1px #c2c1c1 thin;clear:both;">
 											<div style="width:40%;display:line-block;float:left;"><%=propertyItem.getKey() %></div>

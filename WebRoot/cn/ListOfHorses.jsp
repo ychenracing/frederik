@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 														<div class="horse-list-item-div">
 														<div class="horse-list-item-pic">
 														<a href="cn/Horse.jsp?id=<%=horseItem.getId()%>">
-														<img style="width:100%;height:auto;max-height:100%;" src="<%if(horseItem.getCover()!=null)out.print(horseItem.getCover());%>" alt="" />
+														<img class="listHorseImage" src="<%if(horseItem.getCover()!=null)out.print(horseItem.getCover());%>" alt="" />
 														</a>
 														</div>
 														<div class="horse-list-item-text">

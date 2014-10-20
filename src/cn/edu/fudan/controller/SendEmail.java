@@ -2,6 +2,7 @@ package cn.edu.fudan.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -68,7 +69,6 @@ public class SendEmail extends HttpServlet {
 	@SuppressWarnings("static-access")
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
@@ -79,6 +79,8 @@ public class SendEmail extends HttpServlet {
 		content=request.getParameter("content");
 		mail newmail=new mail("smtp.163.com");
 		newmail.send(title,name, email, content, receiver);
+		String tips=URLEncoder.encode("Thanks for your message!","utf-8");
+		response.sendRedirect("cn/Tips?tips="+tips);
 	}
 
 	/**

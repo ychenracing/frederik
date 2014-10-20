@@ -19,7 +19,7 @@
 				<!-- Copyright -->
 					<div id="copyright">
 						<ul class="menu">
-							<li>&copy; ZUCHTHOF STERTHOFF. All rights reserved.
+							<li>&copy;ZUCHTHOF STERTHOFF.All rights reserved.
 							<%if(session.getAttribute("frederik")==null){%>
 							<a href="en/Login.jsp" style="text-decoration:none">Login</a>
 							<%}else{ %>
@@ -31,3 +31,14 @@
 					</div>
 
 			</footer>
+			
+<!-- SlidesJS Required: Link to jQuery -->
+  <script src="en/js/jquery-2.1.1.min.js"></script>
+  <!-- End SlidesJS Required -->
+			<script type="text/javascript">
+$(function(){
+    var languageVersionNode=$("#languageVersion");
+	$("#skel-layers-activeWrapper").append(languageVersionNode);
+	languageVersionNode.appendTo($("#skel-layers-activeWrapper"));
+});
+</script>
