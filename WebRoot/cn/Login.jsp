@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				</div>
 			</div>
-
+        <script src="cn/js/jquery-2.1.1.min.js"></script>
 		<%@include file="template/Footer.jsp"%>
 	</body>
 </html>

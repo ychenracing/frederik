@@ -4,6 +4,7 @@
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="en/js/jquery.min.js"></script>
+		<script src="en/js/jquery.slides.min.js"></script>
 		<script src="en/js/jquery.dropotron.min.js"></script>
 		<script src="en/js/skel.min.js"></script>
 		<script src="en/js/skel-layers.min.js"></script>
@@ -47,14 +48,22 @@
 
     .slidesjs-pagination {
       /*margin: 6px 0 0;
-      float: right;*/
+      float: right;
       margin: 6px auto 6px 40%;
-      list-style: none;
+      list-style: none;*/
+      margin: 2px auto;
+      position:relative; 
+      left:50%; 
+      float:left;
+      margin-bottom:1em;
     }
 
     .slidesjs-pagination li {
-      float: left;
+      /*float: left;*/
       margin: 0 1px;
+      position:relative;
+      right:50%; 
+      float:left;
     }
 
     .slidesjs-pagination li a {

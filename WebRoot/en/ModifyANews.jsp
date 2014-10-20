@@ -92,6 +92,7 @@ ue.ready(function() {
     ue.setContent(document.getElementById("hiddenIntro").innerHTML);
 });
     </script>
+            <script src="en/js/jquery-2.1.1.min.js"></script>
 		<%@include file="template/Footer.jsp"%>
 		<%@include file="template/LoginCheck.jsp"%>
 	</body>

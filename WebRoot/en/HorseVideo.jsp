@@ -34,7 +34,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%@include file="template/Header.jsp" %>
 	</head>
 	<body>
-	<%@include file="template/LanguageVersion.jsp"%>
 		<!-- Header -->
 			<header id="header" style="padding:3em 0 0 0;">
 				<div class="logo container">

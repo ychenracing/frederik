@@ -81,7 +81,7 @@ public class CnSendEmail extends HttpServlet {
 		mail newmail=new mail("smtp.163.com");
 		newmail.send(title,name, email, content, receiver);
 		String tips=URLEncoder.encode("谢谢你的建议和意见","utf-8");
-		response.sendRedirect("cn/Tips?tips="+tips);
+		response.sendRedirect("en/Tips.jsp?tips="+tips);
 	}
 
 	/**

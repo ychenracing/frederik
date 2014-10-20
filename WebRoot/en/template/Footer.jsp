@@ -31,10 +31,6 @@
 					</div>
 
 			</footer>
-			
-<!-- SlidesJS Required: Link to jQuery -->
-  <script src="en/js/jquery-2.1.1.min.js"></script>
-  <!-- End SlidesJS Required -->
 			<script type="text/javascript">
 $(function(){
     var languageVersionNode=$("#languageVersion");
