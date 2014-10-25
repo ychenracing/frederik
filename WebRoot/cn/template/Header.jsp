@@ -1,7 +1,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
+		<meta http-equiv="keywords" content="马,赛马,精选优质马匹,frederik,horses,fine horses,family sterthoff,selection of fine horses,sterthoff,ZUCHTHOF STERTHOFF">
+	    <meta http-equiv="description" content="精选优质马匹 - Sterthoff家族">
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="cn/js/jquery.min.js"></script>
 		<script src="en/js/jquery.slides.min.js"></script>
@@ -10,9 +10,7 @@
 		<script src="cn/js/skel-layers.min.js"></script>
 		<script src="cn/js/init.js"></script>
 		<script type="text/javascript" src="cn/js/frederik.js"></script>
-		<!-- 配置文件 -->
 		<script type="text/javascript" src="cn/ueditor/ueditor.config.js"></script>
-		<!-- 编辑器源码文件 -->
 		<script type="text/javascript" src="cn/ueditor/ueditor.all.js"></script>
 		<script src="cn/ueditor/ueditor.parse.js"></script>
 		<noscript>

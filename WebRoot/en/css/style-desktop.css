@@ -48,6 +48,7 @@
 }
 .sendemailTitle1{
 	width:20%;
+	clear:left;
 	float:left;
 	min-height:40px;
 }

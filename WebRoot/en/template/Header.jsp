@@ -1,7 +1,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
+		<meta http-equiv="keywords" content="frederik,horses,fine horses,family sterthoff,selection of fine horses,sterthoff,ZUCHTHOF STERTHOFF">
+	    <meta http-equiv="description" content="Selection of fine Horses - Family Sterthoff">
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="en/js/jquery.min.js"></script>
 		<script src="en/js/jquery.slides.min.js"></script>
