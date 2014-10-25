@@ -60,7 +60,7 @@ if(news==null)response.sendRedirect(url);
     <div style="width:80%;float:left;clear:right;min-height:40px;"><input id="title" type="text" name="title" style="width:100%;height:100%;" value="<%=news.getTitle()%>"/></div>
     
     <div style="width:20%;float:left;min-height:40px;">修改封面:</div>
-    <div style="width:80%;float:left;min-height:40px;clear:right;"><input id="file" type="file" name="image" accept="image/*" style="width:50%;height:100%;"/></div>
+    <div style="width:80%;float:left;min-height:40px;clear:right;"><input id="file" type="file" name="image" accept="image/*" style="width:50%;height:100%;"/><span style="color:#888888">recommend size: width:</span><span style="color:#cc0000;font-weight:bold;">260px</span>&nbsp;<span style="color:#888888">height:</span><span style="color:#cc0000;font-weight:bold;">260px</span></div>
     
     <div style="width:20%;float:left;min-height:40px;">修改简介:</div>
     <div style="width:80%;float:left;min-height:40px;clear:right;"><textarea id="brief" name="brief" style="width:100%;min-height:100px;resize:none"><%=news.getBrief()%></textarea></div>

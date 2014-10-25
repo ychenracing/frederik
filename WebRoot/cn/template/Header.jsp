@@ -51,7 +51,7 @@
       float: right;
       margin: 6px auto 6px 40%;
       list-style: none;*/
-      margin: 2px auto;
+      margin: 5px auto;
       position:relative; 
       left:50%; 
       float:left;

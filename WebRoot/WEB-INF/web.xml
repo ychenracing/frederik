@@ -204,7 +204,10 @@
   </servlet-mapping>
  <session-config>
   <session-timeout>259200</session-timeout>
- </session-config>
+ </session-config><error-page>
+<error-code>404</error-code>
+<location>/en/Tips.jsp?tips=page not found!</location>
+</error-page>
  <welcome-file-list>
   <welcome-file>/en/index.jsp</welcome-file>
  </welcome-file-list>

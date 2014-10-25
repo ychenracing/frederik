@@ -63,7 +63,7 @@ if(horse==null)response.sendRedirect(url);
     <div style="width:80%;float:left;min-height:40px;clear:right;"><textarea id="brief" name="brief" style="width:100%;min-height:100px;resize:none"><%=horse.getBrief()%></textarea></div>
     
     <div style="width:20%;float:left;min-height:40px;">修改封面:</div>
-    <div style="width:80%;float:left;min-height:40px;clear:right;"><input id="cover" type="file" name="cover" accept="image/*" style="width:50%;height:100%;"/><span style="color:#888888">recommend size: width:</span><span style="color:#cc0000;font-weight:bold;">130px</span>&nbsp;<span style="color:#888888">height:</span><span style="color:#cc0000;font-weight:bold;">130px</span><label id="imagemsg" style="color:#cc0000;"></label></div>
+    <div style="width:80%;float:left;min-height:40px;clear:right;"><input id="cover" type="file" name="cover" accept="image/*" style="width:50%;height:100%;"/><span style="color:#888888">recommend size: width:</span><span style="color:#cc0000;font-weight:bold;">260px</span>&nbsp;<span style="color:#888888">height:</span><span style="color:#cc0000;font-weight:bold;">260px</span><label id="imagemsg" style="color:#cc0000;"></label></div>
     
     <div style="width:20%;float:left;min-height:40px;">修改相册:</div>
     <div style="width:80%;float:left;min-height:40px;clear:right;"><a href="cn/ModifyHorseGallery.jsp?id=<%=horse.getId()%>" class="button">去修改相册</a></div>

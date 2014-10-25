@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cn.edu.fudan.entity.User;
 import cn.edu.fudan.model.ModifyUser;
 
 public class Login extends HttpServlet {
@@ -30,13 +31,17 @@ public class Login extends HttpServlet {
 
 	/**
 	 * The doGet method of the servlet. <br>
-	 *
+	 * 
 	 * This method is called when a form has its tag value method equals to get.
 	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 * @param request
+	 *            the request send by the client to the server
+	 * @param response
+	 *            the response send by the server to the client
+	 * @throws ServletException
+	 *             if an error occurred
+	 * @throws IOException
+	 *             if an error occurred
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -58,39 +63,52 @@ public class Login extends HttpServlet {
 
 	/**
 	 * The doPost method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to post.
 	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 * This method is called when a form has its tag value method equals to
+	 * post.
+	 * 
+	 * @param request
+	 *            the request send by the client to the server
+	 * @param response
+	 *            the response send by the server to the client
+	 * @throws ServletException
+	 *             if an error occurred
+	 * @throws IOException
+	 *             if an error occurred
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String url = request.getHeader("Referer"); //获得前一页的URL
-		HttpSession session=request.getSession();
+		String url = request.getHeader("Referer"); // 获得前一页的URL
+		HttpSession session = request.getSession();
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		String username=request.getParameter("username").trim();
-		String password=request.getParameter("password");
-		ModifyUser modifyUser=new ModifyUser();
-		if(modifyUser.getByUsername(username)==null){
-			session.setAttribute("loginerror","username or password error!");
+		String username = request.getParameter("username").trim();
+		String password = request.getParameter("password");
+		ModifyUser modifyUser = new ModifyUser();
+		User user = modifyUser.getByUsername(username);
+		if (user == null) {
+			session.setAttribute("loginerror", "username not exist!");
 			response.sendRedirect(url);
-		}
-		else {
-			session.setAttribute("frederik",username);
-			response.sendRedirect("en/Manage.jsp");
+		} else {
+			if (password.equals(user.getPassword())) {
+				session.setAttribute("frederik", username);
+				response.sendRedirect("en/Manage.jsp");
+			}
+			else{
+				session.setAttribute("loginerror", "password error!");
+				response.sendRedirect(url);
+			}
+			
 		}
 	}
 
 	/**
 	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
+	 * 
+	 * @throws ServletException
+	 *             if an error occurs
 	 */
 	public void init() throws ServletException {
 		// Put your code here

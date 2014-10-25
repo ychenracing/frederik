@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cn.edu.fudan.entity.User;
 import cn.edu.fudan.model.ModifyUser;
 
 public class CnLogin extends HttpServlet {
@@ -80,13 +81,20 @@ public class CnLogin extends HttpServlet {
 		String username=request.getParameter("username").trim();
 		String password=request.getParameter("password");
 		ModifyUser modifyUser=new ModifyUser();
-		if(modifyUser.getByUsername(username)==null){
-			session.setAttribute("loginerror","用户名或密码错误!");
+		User user = modifyUser.getByUsername(username);
+		if (user == null) {
+			session.setAttribute("loginerror", "用户名不存在!");
 			response.sendRedirect(url);
-		}
-		else {
-			session.setAttribute("frederik",username);
-			response.sendRedirect("cn/Manage.jsp");
+		} else {
+			if (password.equals(user.getPassword())) {
+				session.setAttribute("frederik", username);
+				response.sendRedirect("cn/Manage.jsp");
+			}
+			else{
+				session.setAttribute("loginerror", "密码错误!");
+				response.sendRedirect(url);
+			}
+			
 		}
 	}
 
