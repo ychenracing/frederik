@@ -67,6 +67,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<div class="managePageDivItem" onmouseover="this.className='managePageDivItemHover'" onmouseout="this.className='managePageDivItem'">
 										<a href="cn/iframe/ManageNewsIframe.jsp" target="iframe_family" class="managePageDivLinkItem">管理所有新闻</a>
 										</div>
+										<div class="managePageDivItem" onmouseover="this.className='managePageDivItemHover'" onmouseout="this.className='managePageDivItem'">
+										<a href="cn/ChangePassword.jsp" target="_blank" class="managePageDivLinkItem">修改密码</a>
+										</div>
 										</div>
 										<iframe src="cn/iframe/ManageHomepageIframe.jsp" name="iframe_family" style="float:right;min-height:200px;" class="6u"></iframe>
 										

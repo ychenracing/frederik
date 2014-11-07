@@ -91,6 +91,16 @@
     <servlet-name>CnLogin</servlet-name>
     <servlet-class>cn.edu.fudan.controller.cn.CnLogin</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ChangePassword</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.ChangePassword</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CnChangePassword</servlet-name>
+    <servlet-class>cn.edu.fudan.controller.cn.CnChangePassword</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -201,6 +211,14 @@
   <servlet-mapping>
     <servlet-name>CnLogin</servlet-name>
     <url-pattern>/CnLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChangePassword</servlet-name>
+    <url-pattern>/ModifyPassword</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CnChangePassword</servlet-name>
+    <url-pattern>/CnModifyPassword</url-pattern>
   </servlet-mapping>
  <session-config>
   <session-timeout>259200</session-timeout>

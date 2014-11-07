@@ -20,8 +20,8 @@ public class ModifyUser {
 			rs = dao.stmt.executeQuery(sql.toString());
 			if (rs.next()) {
 				lsu=new User(null);
-				lsu.setUsername(rs.getString(1));
-				lsu.setPassword(rs.getString(2));
+				lsu.setUsername(rs.getString(2));
+				lsu.setPassword(rs.getString(3));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

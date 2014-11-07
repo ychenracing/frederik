@@ -16,7 +16,6 @@ public class DAO {
 			InstantiationException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//String urls = "jdbc:mysql://127.0.0.1:3306/personalweb";
 			String urls = "jdbc:mysql://127.0.0.1:3306/frederik";
 			String user = "frederik";
 			String password = "frederikroot";

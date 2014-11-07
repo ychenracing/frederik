@@ -121,3 +121,27 @@ function loginCheck(){
 	}
 	return true;
 }
+/**compare the two new password to make sure that they are the same*/
+function confirmPassword(){
+	var newpassword=document.getElementById("newpassword").value;
+	var confirmpassword=document.getElementById("confirmpassword").value;
+	if(confirmpassword!=newpassword){
+		document.getElementById("confirmerrormsg").innerText="not the same with your new password!";
+		return false;
+	}
+	else document.getElementById("confirmerrormsg").innerText="";
+	return true;
+	
+}
+/**check the page "ChangePassword",make sure a user input non-null passwords*/
+function modifyPasswordCheck(){
+	var oldpassword=document.getElementById("oldpassword").value;
+	var newpassword=document.getElementById("newpassword").value;
+	var confirmpassword=document.getElementById("confirmpassword").value;
+	if(oldpassword==""||newpassword==""||confirmpassword==""){
+		document.getElementById("errormsg").innerText="any input cannot be null!";
+		return false;
+	}
+	if(!confirmPassword())return false;
+	return true;
+}
